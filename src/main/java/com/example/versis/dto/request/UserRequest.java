@@ -1,4 +1,4 @@
-package com.example.versis.dto;
+package com.example.versis.dto.request;
 
 public record UserRequest(
         String username,

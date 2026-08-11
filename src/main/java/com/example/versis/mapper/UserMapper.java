@@ -1,7 +1,7 @@
 package com.example.versis.mapper;
 
-import com.example.versis.dto.UserRequest;
-import com.example.versis.dto.UserResponse;
+import com.example.versis.dto.request.UserRequest;
+import com.example.versis.dto.response.UserResponse;
 import com.example.versis.model.UserModel;
 
 public class UserMapper {
