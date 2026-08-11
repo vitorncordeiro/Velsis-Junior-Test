@@ -1,4 +1,4 @@
-package com.example.versis;
+package com.example.velsis;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

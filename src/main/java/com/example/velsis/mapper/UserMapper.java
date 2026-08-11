@@ -1,8 +1,8 @@
-package com.example.versis.mapper;
+package com.example.velsis.mapper;
 
-import com.example.versis.dto.request.UserRequest;
-import com.example.versis.dto.response.UserResponse;
-import com.example.versis.model.UserModel;
+import com.example.velsis.dto.request.UserRequest;
+import com.example.velsis.dto.response.UserResponse;
+import com.example.velsis.model.UserModel;
 
 public class UserMapper {
     public static UserModel requestToModel(UserRequest userRequest){

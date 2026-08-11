@@ -1,11 +1,13 @@
-package com.example.versis.security;
+package com.example.velsis.security;
 
-import com.example.versis.model.UserModel;
+import com.example.velsis.model.UserModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,6 +18,12 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+    @Value("${spring.security.user.name}")
+    private String username;
+    @Value("${spring.security.user.password}")
+    private String password;
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         return httpSecurity
@@ -28,10 +36,9 @@ public class SecurityConfig {
     }
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-        UserDetails user = UserModel.builder()
-                .username("admin")
-                .email("admin@velsis.com")
-                .password(encoder.encode("123"))
+        UserDetails user = User.builder()
+                .username(username)
+                .password(encoder.encode(password))
                 .roles("ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(user);

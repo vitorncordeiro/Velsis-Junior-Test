@@ -2,13 +2,13 @@ spring:
   security:
     user:
       name: ${SPRING_SECURITY_USER_NAME:admin}
-      password: ${SPRING_SECURITY_USER_PASSWORD:password}
+      password: ${SPRING_SECURITY_USER_PASSWORD:123}
   application:
     name: versis
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/users_db}
     username: ${DB_USERNAME:admin}
-    password: ${DB_PASSWORD:password}
+    password: ${DB_PASSWORD:123}
   flyway:
     enabled: true
     locations: classpath:db/migration

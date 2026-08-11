@@ -1,9 +1,9 @@
-package com.example.versis.controller;
+package com.example.velsis.controller;
 
-import com.example.versis.dto.request.UserFilter;
-import com.example.versis.dto.request.UserRequest;
-import com.example.versis.dto.response.UserResponse;
-import com.example.versis.service.UserService;
+import com.example.velsis.dto.request.UserFilter;
+import com.example.velsis.dto.request.UserRequest;
+import com.example.velsis.dto.response.UserResponse;
+import com.example.velsis.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

@@ -1,4 +1,4 @@
-package com.example.versis.service;
+package com.example.velsis.service;
 
 import org.springframework.stereotype.Service;
 

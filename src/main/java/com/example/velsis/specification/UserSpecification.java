@@ -1,7 +1,7 @@
-package com.example.versis.specification;
+package com.example.velsis.specification;
 
-import com.example.versis.dto.request.UserFilter;
-import com.example.versis.model.UserModel;
+import com.example.velsis.dto.request.UserFilter;
+import com.example.velsis.model.UserModel;
 import org.springframework.data.jpa.domain.Specification;
 
 public class UserSpecification {

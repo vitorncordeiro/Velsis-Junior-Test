@@ -1,4 +1,4 @@
-package com.example.versis.model;
+package com.example.velsis.model;
 
 import jakarta.persistence.*;
 import lombok.*;

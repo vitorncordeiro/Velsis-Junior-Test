@@ -1,4 +1,4 @@
-package com.example.versis.dto.response;
+package com.example.velsis.dto.response;
 
 public record UserResponse(
         String username,

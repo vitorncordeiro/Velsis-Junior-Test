@@ -1,4 +1,4 @@
-package com.example.versis.dto.request;
+package com.example.velsis.dto.request;
 
 import jakarta.validation.constraints.NotNull;
 

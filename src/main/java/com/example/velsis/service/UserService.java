@@ -1,13 +1,13 @@
-package com.example.versis.service;
+package com.example.velsis.service;
 
-import com.example.versis.dto.request.UserFilter;
-import com.example.versis.dto.request.UserRequest;
-import com.example.versis.dto.response.UserResponse;
-import com.example.versis.exception.BusinessException;
-import com.example.versis.mapper.UserMapper;
-import com.example.versis.model.UserModel;
-import com.example.versis.repository.UserRepository;
-import com.example.versis.specification.UserSpecification;
+import com.example.velsis.dto.request.UserFilter;
+import com.example.velsis.dto.request.UserRequest;
+import com.example.velsis.dto.response.UserResponse;
+import com.example.velsis.exception.BusinessException;
+import com.example.velsis.mapper.UserMapper;
+import com.example.velsis.model.UserModel;
+import com.example.velsis.repository.UserRepository;
+import com.example.velsis.specification.UserSpecification;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
