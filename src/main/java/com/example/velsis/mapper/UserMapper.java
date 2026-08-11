@@ -6,11 +6,11 @@ import com.example.versis.model.UserModel;
 
 public class UserMapper {
     public static UserModel requestToModel(UserRequest userRequest){
-        return new UserModel(
-                userRequest.username(),
-                userRequest.email(),
-                userRequest.password()
-                );
+        return UserModel.builder()
+                .email(userRequest.email())
+                .username(userRequest.username())
+                .password(userRequest.password())
+                .build();
     }
     public static UserResponse modelToResponse(UserModel userModel){
         return new UserResponse(
