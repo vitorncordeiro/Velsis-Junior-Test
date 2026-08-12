@@ -26,4 +26,8 @@ public class UserController {
     public ResponseEntity<Page<UserResponse>> getUsers(Pageable pageable, UserFilter filter){
         return ResponseEntity.ok(userService.getUsers(pageable, filter));
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<UserResponse> getUserById(@PathVariable Long id){
+        return ResponseEntity.ok(userService.getUserById(id));
+    }
 }

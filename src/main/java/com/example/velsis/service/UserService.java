@@ -4,6 +4,7 @@ import com.example.velsis.dto.request.UserFilter;
 import com.example.velsis.dto.request.UserRequest;
 import com.example.velsis.dto.response.UserResponse;
 import com.example.velsis.exception.BusinessException;
+import com.example.velsis.exception.ResourceNotFoundException;
 import com.example.velsis.mapper.UserMapper;
 import com.example.velsis.model.UserModel;
 import com.example.velsis.repository.UserRepository;
@@ -37,6 +38,11 @@ public class UserService {
     public Page<UserResponse> getUsers(Pageable pageable, UserFilter filter){
         return userRepository.findAll(UserSpecification.withFilters(filter), pageable)
                 .map(UserMapper::modelToResponse);
+    }
+
+    public UserResponse getUserById(Long id){
+        return UserMapper.modelToResponse(userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found")));
     }
 
     private void validateUser(UserRequest request) {

@@ -30,4 +30,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleBusinessException(BusinessException exception) {
         return ResponseEntity.badRequest().body(exception.getMessage());
     }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleResourceNotFoundException(ResourceNotFoundException exception){
+        return ResponseEntity.notFound().build();
+    }
 }
