@@ -1,8 +1,5 @@
 spring:
-  security:
-    user:
-      name: ${SPRING_SECURITY_USER_NAME:admin}
-      password: ${SPRING_SECURITY_USER_PASSWORD:123}
+
   application:
     name: versis
   datasource:
@@ -15,3 +12,5 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+application:
+  jwt: ${JWT_TOKEN:123}
