@@ -8,6 +8,10 @@ export default function Home() {
   const [username, setUsername] = useState('');
   const [userId, setUserId] = useState('');
 
+  if(!localStorage.getItem("token")){
+    navigate('/login')
+  }
+
   useEffect(() => {
     fetch(0, username || undefined);
   }, [username, fetch]);

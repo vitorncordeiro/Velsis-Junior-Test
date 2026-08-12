@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { api } from '../services/api.service';
+import { api } from '../services/api';
 
 export function useLogin() {
   const [loading, setLoading] = useState(false);
@@ -10,7 +10,7 @@ export function useLogin() {
     setError(null);
     try {
       const result = await api.login(username, password);
-      localStorage.setItem('token', result.token || 'authenticated');
+      localStorage.setItem('token', result.token);
       return result;
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Login failed';

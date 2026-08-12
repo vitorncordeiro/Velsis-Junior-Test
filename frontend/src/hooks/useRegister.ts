@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { api } from '../services/api.service';
+import { api } from '../services/api';
 
 export function useRegister() {
   const [loading, setLoading] = useState(false);
