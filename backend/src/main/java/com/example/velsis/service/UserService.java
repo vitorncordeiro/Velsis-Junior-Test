@@ -3,6 +3,7 @@ package com.example.velsis.service;
 import com.example.velsis.dto.request.UserFilter;
 import com.example.velsis.dto.request.UserRequest;
 import com.example.velsis.dto.response.UserResponse;
+import com.example.velsis.dto.util.MailDto;
 import com.example.velsis.exception.BusinessException;
 import com.example.velsis.exception.ResourceNotFoundException;
 import com.example.velsis.mapper.UserMapper;
@@ -32,8 +33,11 @@ public class UserService {
         userModel.setPassword(passwordEncoder.encode(userRequest.password()));
         validateUser(userRequest);
         userRepository.save(userModel);
-        mailService.sendMail(userRequest.email(), "Welcome!", "Hello "
-                + userRequest.username() + ", welcome to our platform!");
+        mailService.sendMail(new MailDto(
+                userRequest.email(),
+                "Welcome!",
+                "Hello " + userRequest.username() + ", welcome to our platform!"
+        ));
     }
     public Page<UserResponse> getUsers(Pageable pageable, UserFilter filter){
         return userRepository.findAll(UserSpecification.withFilters(filter), pageable)
@@ -46,10 +50,6 @@ public class UserService {
     }
 
     private void validateUser(UserRequest request) {
-        if (userRepository.existsByEmail(request.email())) {
-            throw new BusinessException("Email already exists");
-        }
-
         List<String> emptyFields = new ArrayList<>();
         if (request.email().isEmpty()) emptyFields.add("email");
         if (request.username().isEmpty()) emptyFields.add("username");
@@ -58,6 +58,10 @@ public class UserService {
         if (!emptyFields.isEmpty()) {
             throw new BusinessException("The following fields cannot be empty: " +
                     String.join(", ", emptyFields));
+        }
+
+        if (userRepository.existsByEmail(request.email())) {
+            throw new BusinessException("Email already exists");
         }
     }
 }
