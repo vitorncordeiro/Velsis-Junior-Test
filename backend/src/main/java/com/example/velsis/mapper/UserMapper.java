@@ -14,6 +14,7 @@ public class UserMapper {
     }
     public static UserResponse modelToResponse(UserModel userModel){
         return new UserResponse(
+                userModel.getId(),
                 userModel.getUsername(),
                 userModel.getEmail()
         );
